@@ -42,6 +42,7 @@ export default function Contact() {
             <a
               key={link.label}
               href={link.href}
+              target="_blank"
               data-cursor="link"
               className="group flex flex-col gap-1"
             >
@@ -56,7 +57,7 @@ export default function Contact() {
         </motion.div>
 
         <motion.a
-          href="mailto:your@email.com"
+          href="mailto:elaraby98123@email.com"
           data-cursor="link"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

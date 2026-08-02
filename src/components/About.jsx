@@ -65,9 +65,10 @@ export default function About({ reducedMotion }) {
           >
             WHO
             <br />
-            AM
+            I,<span className="text-blood-bright">AM?</span>
             <br />
-            I<span className="text-blood-bright">?</span>
+            
+            
           </motion.h2>
 
           <div className="mt-16 max-w-xl space-y-3 border-l border-iron/40 pl-6 md:mt-24 md:pl-8">
