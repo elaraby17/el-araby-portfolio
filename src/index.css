@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #050505;
+  --color-abyss: #000000;
+  --color-panel: #0a0a0a;
+  --color-bone: #efece5;
+  --color-ash: #8a8782;
+  --color-iron: #3d3b38;
+  --color-blood: #2b0808;
+  --color-blood-glow: #5c1010;
+  --color-blood-bright: #7a1414;
+
+  --font-display: "Anton", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+@font-face {
+  font-family: "Anton";
+  src: local("Anton");
+}
+
+html {
+  background: #050505;
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  overscroll-behavior: none;
+  cursor: none;
+}
+
+@media (max-width: 768px), (hover: none) {
+  body {
+    cursor: auto;
+  }
+}
+
+::selection {
+  background: var(--color-blood-bright);
+  color: var(--color-bone);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
