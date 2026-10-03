@@ -25,16 +25,16 @@ export default function About({ reducedMotion }) {
   const headingOpacity = useTransform(scrollYProgress, [0, 0.12], [0, 1])
   const headingX = useTransform(scrollYProgress, [0, 0.12], reducedMotion ? [0, 0] : [-60, 0])
 
-  const portraitY = useTransform(scrollYProgress, [0.4, 0.6], reducedMotion ? [0, 0] : [0, -30])
-  const portraitOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 0.28, 0.28, 0])
+  const portraitY = useTransform(scrollYProgress, [0.3, 0.75], reducedMotion ? [0, 0] : [0, -30])
+  const portraitOpacity = useTransform(scrollYProgress, [0, 0.15, 0.88, 1], [0, 0.28, 0.28, 0])
 
-  const labelsOpacity = useTransform(scrollYProgress, [0.62, 0.72], [0, 1])
-  const labelsY = useTransform(scrollYProgress, [0.62, 0.72], reducedMotion ? [0, 0] : [16, 0])
+  const labelsOpacity = useTransform(scrollYProgress, [0.62, 0.78], [0, 1])
+  const labelsY = useTransform(scrollYProgress, [0.62, 0.78], reducedMotion ? [0, 0] : [16, 0])
 
-  const exitOpacity = useTransform(scrollYProgress, [0.85, 1], [1, 0])
+  const exitOpacity = useTransform(scrollYProgress, [0.9, 1], [1, 0])
 
   return (
-    <section ref={sectionRef} id="about" className="relative h-[180vh]">
+    <section ref={sectionRef} id="about" className="relative h-[240vh]">
       <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden bg-void px-6 md:px-12 lg:px-16">
         {/* ambient portrait cameo, kept behind everything */}
         <motion.img
@@ -65,16 +65,15 @@ export default function About({ reducedMotion }) {
           >
             WHO
             <br />
-            I,<span className="text-blood-bright">AM?</span>
+            AM
             <br />
-            
-            
+            I<span className="text-blood-bright">?</span>
           </motion.h2>
 
           <div className="mt-16 max-w-xl space-y-3 border-l border-iron/40 pl-6 md:mt-24 md:pl-8">
             {bioLines.map((line, i) => {
-              const start = 0.2 + i * 0.045
-              const end = start + 0.08
+              const start = 0.16 + i * 0.09
+              const end = start + 0.18
               return (
                 <BioLine
                   key={line}

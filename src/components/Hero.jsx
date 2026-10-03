@@ -25,7 +25,7 @@ export default function Hero({ reducedMotion }) {
   const bgOpacity = useTransform(scrollYProgress, [0, 1], reducedMotion ? [1, 1] : [1, 0.85])
 
   return (
-    <section ref={sectionRef} className="relative h-[200vh]">
+    <section ref={sectionRef} id="top" className="relative h-[200vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-void">
         {/* Layer 1: background */}
         <motion.div
@@ -40,10 +40,20 @@ export default function Hero({ reducedMotion }) {
         <PortraitScene scrollYProgress={scrollYProgress} reducedMotion={reducedMotion} />
         <FloatingInfo scrollYProgress={scrollYProgress} reducedMotion={reducedMotion} />
 
+        {/* Mobile-only legibility gradients over the portrait */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-void via-void/70 to-transparent md:hidden"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[22%] bg-gradient-to-t from-void via-void/60 to-transparent md:hidden"
+        />
+
         {/* Intro text block */}
         <motion.div
           style={{ opacity: introOpacity, y: introY }}
-          className="relative z-10 flex h-full w-full flex-col justify-center px-6 md:px-12 lg:px-16"
+          className="relative z-10 flex h-full w-full flex-col justify-start px-6 pt-28 md:justify-center md:px-12 md:pt-0 lg:px-16"
         >
           <motion.span
             initial={{ opacity: 0, y: 20 }}

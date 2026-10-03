@@ -16,11 +16,6 @@
   --font-mono: "Space Mono", monospace;
 }
 
-@font-face {
-  font-family: "Anton";
-  src: local("Anton");
-}
-
 html {
   background: #050505;
   scroll-behavior: auto;

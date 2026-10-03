@@ -7,12 +7,14 @@ export default function ProjectCard({ project }) {
 
   return (
     <div className="flex min-h-[90vh] flex-col items-center justify-center gap-10 px-6 py-24 md:min-h-[120vh] md:flex-row md:gap-16 md:px-12 lg:px-16">
+
       <motion.div
         initial={{ opacity: 0, x: fromLeft ? -80 : 80 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease }}
-        className={`w-full max-w-xl md:w-1/2 ${fromLeft ? '' : 'md:order-2'}`}
+        className={`w-full max-w-xl md:w-1/2 ${fromLeft ? '' : 'md:order-2'
+          }`}
       >
         <span className="font-mono text-xs tracking-[0.25em] text-blood-bright">
           PROJECT {project.index}
@@ -41,29 +43,47 @@ export default function ProjectCard({ project }) {
           ))}
         </ul>
 
-        <button
-          data-cursor="link"
-          className="mt-8 font-mono text-xs tracking-[0.2em] text-bone underline decoration-blood-bright decoration-2 underline-offset-4"
-        >
-          VIEW CASE STUDY →
-        </button>
+        {project.link && project.link !== '#' && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="link"
+            className="mt-8 inline-block font-mono text-xs tracking-[0.2em] text-bone underline decoration-blood-bright decoration-2 underline-offset-4 transition-opacity hover:opacity-60"
+          >
+            VIEW CASE STUDY →
+          </a>
+        )}
       </motion.div>
 
       <motion.div
         data-cursor="view"
-        initial={{ opacity: 0, x: fromLeft ? 80 : -80, scale: 1.15 }}
-        whileInView={{ opacity: 1, x: 0, scale: 1 }}
+        initial={{
+          opacity: 0,
+          x: fromLeft ? 80 : -80,
+          scale: 1.15,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          scale: 1,
+        }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1, ease }}
-        className={`relative flex aspect-[4/3] w-full max-w-xl items-center justify-center border border-iron/50 bg-panel md:w-1/2 ${fromLeft ? 'md:order-1' : ''}`}
+        className={`relative flex aspect-[4/3] w-full max-w-xl items-center justify-center border border-iron/50 bg-panel md:w-1/2 ${fromLeft ? 'md:order-1' : ''
+          }`}
       >
-        <span className="font-display text-[10vw] text-iron/60 md:text-[5vw]">
-          {project.index}
-        </span>
+        <img
+          src={project.image}
+          alt={project.title}
+          className="h-full w-full object-cover"
+        />
+
         <span className="absolute bottom-3 right-3 font-mono text-[9px] tracking-[0.15em] text-iron">
           SCREENSHOT PREVIEW
         </span>
       </motion.div>
+
     </div>
   )
 }

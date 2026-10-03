@@ -1,29 +1,37 @@
 export const projects = [
-  {
-    index: '01',
-    title: 'VCARE',
-    subtitle: 'Clinic management system',
-    description:
-      'An admin-driven platform for managing clinics: doctor and specialty records, search, filtering, and pagination across a growing patient base.',
-    tech: ['LARAVEL', 'BLADE', 'TAILWIND', 'MYSQL'],
-    direction: 'left',
-  },
-  {
-    index: '02',
-    title: 'RESTAURANT SAAS',
-    subtitle: 'Multi-tenant platform, Egyptian market',
-    description:
-      'A storefront, restaurant dashboard, and admin panel on one codebase — built for restaurants that need QR ordering and WhatsApp notifications without managing their own infrastructure.',
-    tech: ['LARAVEL API', 'NEXT.JS', 'MULTI-TENANT'],
-    direction: 'right',
-  },
-  {
-    index: '03',
-    title: 'LMS API',
-    subtitle: 'E-learning platform backend',
-    description:
-      'The API layer behind an e-learning platform: courses, sections, lessons, and resources, with a standardized response layer across every endpoint.',
-    tech: ['LARAVEL', 'MYSQL', 'REST API'],
-    direction: 'left',
-  },
-]
+    {
+        index: "01",
+        image: "/src/assets/projects/peak-burger.jpeg",
+        title: "PEAK BURGER",
+        subtitle: "Restaurant ordering platform",
+        description:
+            "A full-stack restaurant ordering platform built with React and Laravel API, featuring authentication, product categories, product sizes, favorites, cart and order workflows, with a responsive customer-facing experience.",
+        tech: ["REACT", "LARAVEL API", "MYSQL", "SANCTUM"],
+        link: "https://peak-burger.vercel.app/",
+        direction: "left",
+    },
+
+    {
+        index: "02",
+        image: "/src/assets/projects/lms.jpeg",
+        title: "E-LEARNING PLATFORM",
+        subtitle: "Learning management system",
+        description:
+            "An e-learning platform built with Laravel Blade and REST API, covering authentication, courses, categories, sections, lessons, resources, enrollments, roles, and dashboards. The frontend is being migrated to React for a separate modern client application.",
+        tech: ["LARAVEL", "BLADE", "REST API", "MYSQL", "REACT"],
+        link: "https://e-learning-platform-production-ae87.up.railway.app/",
+        direction: "right",
+    },
+
+    {
+        index: "03",
+        image: "/src/assets/projects/vcare.jpeg",
+        title: "VCARE",
+        subtitle: "Clinic management system",
+        description:
+            "An admin-focused clinic management system built with Laravel Blade for managing doctors, medical specialties, and clinic data, with search, filtering, pagination, and structured CRUD workflows.",
+        tech: ["LARAVEL", "BLADE", "TAILWIND", "MYSQL"],
+        link: "#",
+        direction: "left",
+    },
+];

@@ -23,7 +23,7 @@ export default function PortraitScene({ scrollYProgress, reducedMotion }) {
   const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.55, 0.85, 0.4])
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center md:justify-end">
+    <div className="absolute inset-0 flex items-end justify-center pb-16 md:items-center md:justify-end md:pb-0">
       {/* Layer 2: atmospheric red glow */}
       <motion.div
         aria-hidden="true"
@@ -36,7 +36,7 @@ export default function PortraitScene({ scrollYProgress, reducedMotion }) {
         initial={{ opacity: 0, scale: 1.08, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="relative h-[62vh] w-[85vw] max-w-[560px] md:h-[72vh] md:w-auto md:max-w-none md:right-[6%] lg:right-[10%]"
+        className="relative h-[46vh] w-[78vw] max-w-[420px] md:h-[72vh] md:w-auto md:max-w-none md:right-[6%] lg:right-[10%]"
       >
         <motion.div
           style={{ scale, x, y }}
