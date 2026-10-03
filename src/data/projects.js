@@ -1,7 +1,7 @@
 export const projects = [
     {
         index: "01",
-        image: "/public/projects/peak-burger.png",
+        image: "/projects/peak-burger.jpeg",
         title: "PEAK BURGER",
         subtitle: "Restaurant ordering platform",
         description:
@@ -13,7 +13,7 @@ export const projects = [
 
     {
         index: "02",
-        image: "/public/projects/lms.png",
+        image: "/projects/lms.jpeg",
         title: "E-LEARNING PLATFORM",
         subtitle: "Learning management system",
         description:
@@ -25,7 +25,7 @@ export const projects = [
 
     {
         index: "03",
-        image: "/public/projects/vcare.png",
+        image: "/projects/vcare.jpeg",
         title: "VCARE",
         subtitle: "Clinic management system",
         description:
