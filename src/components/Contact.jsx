@@ -40,14 +40,14 @@ function InstagramIcon({ size = 16, ...props }) {
 const links = [
   {
     label: 'FACEBOOK',
-    value: 'FACEBOOK.COM/YOURPAGE',
-    href: 'https://facebook.com/yourpage',
+    value: 'FACEBOOK.COM/MOHAMED-ELARABY',
+    href: 'https://www.facebook.com/mohamed.el.araby.833588/',
     Icon: FacebookIcon,
   },
   {
     label: 'INSTAGRAM',
-    value: '@YOURHANDLE',
-    href: 'https://instagram.com/yourhandle',
+    value: '@me_mohamedessam',
+    href: 'https://www.instagram.com/me_mohamedessam/',
     Icon: InstagramIcon,
   },
   {
