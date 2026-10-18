@@ -19,6 +19,21 @@ function GithubIcon({ size = 16, ...props }) {
 
 const links = [
   {
+<<<<<<< HEAD
+=======
+    label: 'FACEBOOK',
+    value: 'FACEBOOK.COM/MOHAMED-ELARABY',
+    href: 'https://www.facebook.com/mohamed.el.araby.833588/',
+    Icon: FacebookIcon,
+  },
+  {
+    label: 'INSTAGRAM',
+    value: '@me_mohamedessam',
+    href: 'https://www.instagram.com/me_mohamedessam/',
+    Icon: InstagramIcon,
+  },
+  {
+>>>>>>> 71038ef64f49187ca3a663dfa19cac0831f2cd92
     label: 'WHATSAPP',
     value: '+20 106 988 0640',
     href: 'https://wa.me/201069880640',
