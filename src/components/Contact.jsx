@@ -1,38 +1,31 @@
+
 import { motion } from 'framer-motion'
-import { MessageCircle } from 'lucide-react'
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Facebook,
+  Github,
+  Instagram,
+  MessageCircle,
+  Mail,
+} from 'lucide-react'
 
 const ease = [0.16, 1, 0.3, 1]
 
-function GithubIcon({ size = 16, ...props }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width={size}
-      height={size}
-      fill="currentColor"
-      {...props}
-    >
-      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
-    </svg>
-  )
-}
-
 const links = [
   {
-
     label: 'FACEBOOK',
-    value: 'FACEBOOK.COM/MOHAMED-ELARABY',
+    value: 'Mohamed El Araby',
     href: 'https://www.facebook.com/mohamed.el.araby.833588/',
-    Icon: FacebookIcon,
+    Icon: Facebook,
   },
   {
     label: 'INSTAGRAM',
     value: '@me_mohamedessam',
     href: 'https://www.instagram.com/me_mohamedessam/',
-    Icon: InstagramIcon,
+    Icon: Instagram,
   },
   {
-
     label: 'WHATSAPP',
     value: '+20 106 988 0640',
     href: 'https://wa.me/201069880640',
@@ -42,90 +35,185 @@ const links = [
     label: 'GITHUB',
     value: 'github.com/elaraby17',
     href: 'https://github.com/elaraby17',
-    Icon: GithubIcon,
+    Icon: Github,
   },
 ]
+
+const reveal = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+}
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 flex min-h-screen flex-col justify-between bg-black px-6 py-24 md:px-12 md:py-28 lg:px-16"
+      aria-labelledby="contact-heading"
+      className="relative isolate overflow-hidden bg-[#080808] px-5 py-24 text-[#F1EEE8] sm:px-8 sm:py-28 md:px-12 lg:px-16 lg:py-32"
     >
-      <div className="mx-auto flex w-full max-w-[1500px] flex-1 flex-col justify-center">
-        <div className="flex items-baseline gap-3">
-          <span className="font-mono text-xs tracking-[0.3em] text-blood-text">06</span>
-          <span className="h-px w-8 bg-iron" />
-          <span className="font-mono text-xs tracking-[0.3em] text-ash">CONTACT</span>
-        </div>
+      {/* Background decoration */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-40 top-20 -z-10 h-96 w-96 rounded-full bg-red-700/[0.07] blur-[120px]"
+      />
 
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1, ease }}
-          className="font-display mt-8 text-[13vw] leading-[0.88] text-bone sm:text-[10vw] md:mt-12 md:text-[6.5vw]"
-        >
-          LET&apos;S
-          <br />
-          BUILD
-          <br />
-          SOMETHING
-          <br />
-          <span className="text-blood-text">TOGETHER.</span>
-        </motion.h2>
-
+      <div className="mx-auto w-full max-w-[1400px]">
+        {/* Section heading */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.9, delay: 0.2, ease }}
-          className="mt-12 flex flex-col gap-4 md:mt-16 md:flex-row md:gap-10"
+          variants={reveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease }}
+          className="flex items-center gap-3"
         >
-          {links.map(({ label, value, href, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="link"
-              className="group flex items-center gap-3 border border-iron/40 px-4 py-3 transition-colors duration-300 hover:border-blood-text md:border md:px-5"
-            >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-iron/60 text-ash transition-colors duration-300 group-hover:border-blood-text group-hover:text-blood-text">
-                <Icon size={16} strokeWidth={1.5} />
-              </span>
-              <span className="flex flex-col gap-0.5">
-                <span className="font-mono text-[10px] tracking-[0.25em] text-ash">
-                  {label}
-                </span>
-                <span className="font-mono text-sm tracking-[0.05em] text-bone/80 transition-colors duration-300 group-hover:text-bone">
-                  {value}
-                </span>
-              </span>
-            </a>
-          ))}
+          <span className="font-mono text-xs tracking-[0.25em] text-red-500">
+            06
+          </span>
+
+          <span className="h-px w-9 bg-white/20" />
+
+          <span className="font-mono text-xs tracking-[0.25em] text-white/45">
+            CONTACT
+          </span>
         </motion.div>
 
-        <motion.a
-          href="https://wa.me/201069880640"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-cursor="link"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.9, delay: 0.3, ease }}
-          className="mt-10 flex w-fit items-center gap-3 border border-bone bg-bone px-8 py-4 font-mono text-xs tracking-[0.2em] text-void transition-colors duration-300 hover:border-blood-text hover:bg-blood-text hover:text-bone md:mt-14"
-        >
-          START A PROJECT ON WHATSAPP
-          <span aria-hidden="true">→</span>
-        </motion.a>
-      </div>
+        {/* Main content */}
+        <div className="mt-12 grid gap-14 lg:mt-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-20">
+          <div>
+            <motion.p
+              variants={reveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease }}
+              className="mb-6 max-w-md text-sm leading-7 text-white/50 sm:text-base"
+            >
+              Have a project in mind or looking for a developer?
+              Let&apos;s discuss how we can build something meaningful.
+            </motion.p>
 
-      <footer className="mx-auto mt-20 flex w-full max-w-[1500px] flex-col gap-2 border-t border-iron/30 pt-6 font-mono text-[10px] tracking-[0.15em] text-ash md:flex-row md:items-center md:justify-between">
-        <span>© {new Date().getFullYear()} MOHAMED EL ARABY</span>
-        <span>SUEZ, EGYPT — AVAILABLE FOR WORK</span>
-      </footer>
+            <motion.h2
+              id="contact-heading"
+              variants={reveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.9, ease }}
+              className="break-words font-display text-[16vw] leading-[0.86] tracking-[-0.065em] sm:text-[12vw] md:text-[10vw] lg:text-[7.5vw]"
+            >
+              LET&apos;S
+              <br />
+              BUILD
+              <br />
+              <span className="text-red-600">TOGETHER.</span>
+            </motion.h2>
+
+            <motion.a
+              href="https://wa.me/201069880640"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contact El Araby on WhatsApp"
+              variants={reveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.15, ease }}
+              className="group mt-9 inline-flex min-h-14 items-center justify-center gap-4 bg-red-600 px-6 py-4 font-mono text-xs tracking-[0.12em] text-white transition-colors duration-300 hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-500 sm:px-8"
+            >
+              <MessageCircle size={18} />
+
+              <span>START A PROJECT</span>
+
+              <ArrowUpRight
+                size={17}
+                className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+              />
+            </motion.a>
+          </div>
+
+          {/* Contact links */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.09,
+                },
+              },
+            }}
+            className="border-t border-white/15"
+          >
+            <div className="border-b border-white/15 py-5">
+              <span className="font-mono text-[10px] tracking-[0.25em] text-red-500">
+                GET IN TOUCH
+              </span>
+
+              <h3 className="mt-2 text-xl font-medium sm:text-2xl">
+                Find me online
+              </h3>
+            </div>
+
+            {links.map(({ label, value, href, Icon }) => (
+              <motion.a
+                key={label}
+                variants={reveal}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${label}: ${value}`}
+                className="group flex min-w-0 items-center gap-4 border-b border-white/10 py-5 transition-colors duration-300 hover:border-red-500/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-red-500"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/15 text-white/60 transition-all duration-300 group-hover:border-red-500 group-hover:bg-red-600 group-hover:text-white">
+                  <Icon size={18} strokeWidth={1.5} />
+                </span>
+
+                <span className="min-w-0 flex-1">
+                  <span className="block font-mono text-[10px] tracking-[0.2em] text-white/40">
+                    {label}
+                  </span>
+
+                  <span className="mt-1 block break-words text-sm text-white/80 transition-colors group-hover:text-white sm:text-base">
+                    {value}
+                  </span>
+                </span>
+
+                <ArrowUpRight
+                  size={17}
+                  className="shrink-0 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-red-500"
+                />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Footer */}
+        <footer className="mt-24 border-t border-white/15 pt-6 sm:mt-32">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <a
+                href="#home"
+                className="inline-flex items-center gap-2 font-display text-lg tracking-tight transition-colors hover:text-red-500"
+              >
+                EL ARABY
+                <ArrowDownRight size={16} className="text-red-500" />
+              </a>
+
+              <p className="mt-2 font-mono text-[10px] tracking-wider text-white/40">
+                BUILDING DIGITAL EXPERIENCES
+              </p>
+            </div>
+
+            <div className="font-mono text-[10px] leading-6 tracking-wider text-white/45 sm:text-right">
+              <p>© {new Date().getFullYear()} EL ARABY</p>
+              <p>SUEZ, EGYPT</p>
+            </div>
+          </div>
+        </footer>
+      </div>
     </section>
   )
 }
