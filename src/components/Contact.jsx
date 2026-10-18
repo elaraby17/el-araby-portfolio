@@ -3,27 +3,71 @@ import { motion } from 'framer-motion'
 import {
   ArrowDownRight,
   ArrowUpRight,
-  Facebook,
-  Github,
-  Instagram,
   MessageCircle,
-  Mail,
 } from 'lucide-react'
 
+
 const ease = [0.16, 1, 0.3, 1]
+
+function GithubIcon({ size = 18 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.92.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.61 5.24-5.1 5.51.4.35.75 1.03.75 2.08v3.08c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
+    </svg>
+  )
+}
+function FacebookIcon({ size = 18 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.8-.1-1.7-.2-2.6-.2-2.7 0-4.5 1.6-4.5 4.7v2H6.8v3.2h2.9V21h3.8Z" />
+    </svg>
+  )
+}
+
+function InstagramIcon({ size = 18 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
 
 const links = [
   {
     label: 'FACEBOOK',
     value: 'Mohamed El Araby',
     href: 'https://www.facebook.com/mohamed.el.araby.833588/',
-    Icon: Facebook,
+    Icon: FacebookIcon,
   },
   {
     label: 'INSTAGRAM',
     value: '@me_mohamedessam',
     href: 'https://www.instagram.com/me_mohamedessam/',
-    Icon: Instagram,
+    Icon: InstagramIcon,
   },
   {
     label: 'WHATSAPP',
@@ -35,7 +79,7 @@ const links = [
     label: 'GITHUB',
     value: 'github.com/elaraby17',
     href: 'https://github.com/elaraby17',
-    Icon: Github,
+    Icon: GithubIcon,
   },
 ]
 
@@ -43,6 +87,8 @@ const reveal = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 }
+
+
 
 export default function Contact() {
   return (
