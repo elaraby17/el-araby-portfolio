@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, useSpring } from 'framer-motion'
 
 export default function CustomCursor() {
@@ -12,6 +12,7 @@ export default function CustomCursor() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (!isDesktop || reduced) return
     setEnabled(true)
+    document.body.classList.add('has-custom-cursor')
 
     const move = (e) => {
       x.set(e.clientX)
@@ -29,6 +30,7 @@ export default function CustomCursor() {
     return () => {
       window.removeEventListener('mousemove', move)
       window.removeEventListener('mouseover', overLink)
+      document.body.classList.remove('has-custom-cursor')
     }
   }, [x, y])
 

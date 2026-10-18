@@ -2,8 +2,6 @@ import { motion, useTransform } from 'framer-motion'
 import portrait from '../assets/portrait.jpg'
 
 export default function PortraitScene({ scrollYProgress, reducedMotion }) {
-  const range = reducedMotion ? [0, 1] : undefined
-
   const scale = useTransform(
     scrollYProgress,
     [0, 0.35, 0.65, 1],

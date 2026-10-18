@@ -2,16 +2,14 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import portrait from '../assets/portrait.jpg'
 
-const ease = [0.16, 1, 0.3, 1]
-
 const bioLines = [
   'I build backend-first web applications',
-  'with Laravel, PHP and MySQL — then',
-  'extend them with React and Next.js',
-  'on the frontend.',
+  'with Laravel, PHP and MySQL — APIs,',
+  'authentication, and clean database',
+  'design — then extend them with React.',
 ]
 
-const labels = ['LARAVEL', 'REACT', 'NEXT.JS', 'REST API']
+const labels = ['LARAVEL', 'PHP', 'MYSQL', 'REST API', 'REACT']
 
 export default function About({ reducedMotion }) {
   const sectionRef = useRef(null)
@@ -34,9 +32,9 @@ export default function About({ reducedMotion }) {
   const exitOpacity = useTransform(scrollYProgress, [0.9, 1], [1, 0])
 
   return (
-    <section ref={sectionRef} id="about" className="relative h-[240vh]">
-      <div className="sticky top-0 flex h-screen w-full flex-col justify-center overflow-hidden bg-void px-6 md:px-12 lg:px-16">
-        {/* ambient portrait cameo, kept behind everything */}
+    <section ref={sectionRef} id="about" className="relative h-[240vh] scroll-mt-24">
+      <div className="sticky top-0 flex h-dvh w-full flex-col justify-center overflow-hidden bg-void px-6 md:px-12 lg:px-16">
+        {/* Ambient portrait cameo, kept behind everything */}
         <motion.img
           aria-hidden="true"
           src={portrait}
@@ -54,23 +52,23 @@ export default function About({ reducedMotion }) {
             style={{ opacity: eyebrowOpacity }}
             className="flex items-center gap-3 font-mono text-xs tracking-[0.3em] text-ash"
           >
-            <span className="text-blood-bright">02</span>
+            <span className="text-blood-text">02</span>
             <span className="h-px w-8 bg-iron" />
             ABOUT
           </motion.span>
 
           <motion.h2
             style={{ opacity: headingOpacity, x: headingX }}
-            className="font-display mt-6 text-[16vw] leading-[0.82] text-bone sm:text-[13vw] md:text-[8vw]"
+            className="font-display mt-6 text-[15vw] leading-[0.82] text-bone sm:text-[12vw] md:text-[7.5vw]"
           >
             WHO
             <br />
             AM
             <br />
-            I<span className="text-blood-bright">?</span>
+            I<span className="text-blood-text">?</span>
           </motion.h2>
 
-          <div className="mt-16 max-w-xl space-y-3 border-l border-iron/40 pl-6 md:mt-24 md:pl-8">
+          <div className="mt-14 max-w-xl space-y-3 border-l-2 border-blood-bright/70 pl-6 md:mt-20 md:pl-8">
             {bioLines.map((line, i) => {
               const start = 0.16 + i * 0.09
               const end = start + 0.18
@@ -88,13 +86,11 @@ export default function About({ reducedMotion }) {
 
           <motion.div
             style={{ opacity: labelsOpacity, y: labelsY }}
-            className="mt-16 flex flex-wrap gap-3 pl-6 md:mt-20 md:pl-8"
+            className="mt-14 flex flex-wrap gap-2 pl-6 md:mt-16 md:pl-8"
+            aria-label="Core technologies"
           >
             {labels.map((label) => (
-              <span
-                key={label}
-                className="border border-iron/60 px-3 py-1.5 font-mono text-[10px] tracking-[0.15em] text-ash"
-              >
+              <span key={label} className="chip">
                 {label}
               </span>
             ))}
@@ -112,7 +108,7 @@ function BioLine({ line, scrollYProgress, range, reducedMotion }) {
   return (
     <motion.p
       style={{ opacity, y }}
-      className="font-body text-xl font-light leading-snug text-ash sm:text-2xl md:text-3xl"
+      className="font-body text-lg font-light leading-snug text-bone/85 sm:text-xl md:text-2xl"
     >
       {line}
     </motion.p>

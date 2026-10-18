@@ -5,11 +5,12 @@
   --color-abyss: #000000;
   --color-panel: #0a0a0a;
   --color-bone: #efece5;
-  --color-ash: #8a8782;
-  --color-iron: #3d3b38;
+  --color-ash: #9a968f;
+  --color-iron: #57534e;
   --color-blood: #2b0808;
   --color-blood-glow: #5c1010;
   --color-blood-bright: #7a1414;
+  --color-blood-text: #e05050;
 
   --font-display: "Anton", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -26,11 +27,19 @@ body {
   color: var(--color-bone);
   font-family: var(--font-body);
   overscroll-behavior: none;
+}
+
+/* Custom cursor only hides the system cursor while CustomCursor is mounted */
+body.has-custom-cursor,
+body.has-custom-cursor a,
+body.has-custom-cursor button {
   cursor: none;
 }
 
 @media (max-width: 768px), (hover: none) {
-  body {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
     cursor: auto;
   }
 }
@@ -40,6 +49,11 @@ body {
   color: var(--color-bone);
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-blood-text);
+  outline-offset: 3px;
+}
+
 .font-display {
   font-family: var(--font-display);
   letter-spacing: -0.01em;
@@ -47,6 +61,44 @@ body {
 
 .font-mono {
   font-family: var(--font-mono);
+}
+
+/* Shared tech-chip style (Skills, Projects) */
+.chip {
+  display: inline-block;
+  border: 1px solid color-mix(in srgb, var(--color-iron) 55%, transparent);
+  padding: 0.35rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  color: var(--color-ash);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.chip:hover {
+  color: var(--color-bone);
+  border-color: var(--color-blood-text);
+}
+
+/* Skip link — visible only on keyboard focus */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 200;
+  background: var(--color-bone);
+  color: var(--color-void);
+  padding: 0.6rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

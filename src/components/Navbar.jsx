@@ -2,17 +2,34 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
-const links = ['WORK', 'ABOUT', 'EXPERIENCE', 'CONTACT']
+const links = ['WORK', 'ABOUT', 'SKILLS', 'EXPERIENCE', 'CONTACT']
 const ease = [0.16, 1, 0.3, 1]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
+  }, [open])
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
   const handleLinkClick = () => setOpen(false)
@@ -23,17 +40,24 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.3, ease }}
-        className="fixed left-0 top-0 z-50 flex w-full items-center justify-between px-6 py-6 md:px-12 md:py-8"
+        className={`fixed left-0 top-0 z-50 flex w-full items-center justify-between px-6 py-6 transition-colors duration-300 md:px-12 md:py-7 ${
+          scrolled
+            ? 'border-b border-iron/25 bg-void/85 backdrop-blur-md'
+            : 'border-b border-transparent'
+        }`}
       >
         <a
           href="#top"
           onClick={handleLinkClick}
+          data-cursor="link"
           className="font-mono text-xs tracking-[0.25em] text-bone"
+          aria-label="El Araby — back to top"
         >
           EL&nbsp;ARABY
+          <span className="text-blood-text">.</span>
         </a>
 
-        <nav className="hidden gap-8 md:flex">
+        <nav aria-label="Primary" className="hidden gap-8 md:flex">
           {links.map((label) => (
             <a
               key={label}
@@ -66,7 +90,7 @@ export default function Navbar() {
             transition={{ duration: 0.4, ease }}
             className="fixed inset-0 z-[100] flex flex-col justify-center bg-abyss/98 px-8 backdrop-blur-sm md:hidden"
           >
-            <nav className="flex flex-col gap-2">
+            <nav aria-label="Mobile" className="flex flex-col gap-2">
               {links.map((label, i) => (
                 <motion.a
                   key={label}
@@ -75,7 +99,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 + i * 0.07, ease }}
-                  className="font-display border-b border-iron/30 py-4 text-4xl text-bone active:text-blood-bright"
+                  className="font-display border-b border-iron/30 py-4 text-4xl text-bone active:text-blood-text"
                 >
                   {label}
                 </motion.a>
@@ -86,7 +110,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-10 font-mono text-[10px] tracking-[0.2em] text-iron"
+              className="mt-10 font-mono text-[10px] tracking-[0.2em] text-ash"
             >
               MOHAMED EL ARABY — SUEZ, EGYPT
             </motion.span>

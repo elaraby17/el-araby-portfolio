@@ -2,7 +2,7 @@ import { motion, useTransform } from 'framer-motion'
 
 const Tag = ({ children, className = '' }) => (
   <div
-    className={`w-fit border border-iron/70 bg-abyss/40 px-3 py-2 font-mono text-[10px] uppercase leading-tight tracking-[0.15em] text-ash backdrop-blur-[2px] ${className}`}
+    className={`w-fit border border-iron/50 bg-abyss/60 px-3 py-2 font-mono text-[10px] uppercase leading-tight tracking-[0.15em] text-ash backdrop-blur-[2px] ${className}`}
   >
     {children}
   </div>
@@ -19,7 +19,7 @@ export default function FloatingInfo({ scrollYProgress, reducedMotion }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
         style={{ y: slow }}
-        className="absolute left-10 top-[20%] lg:left-16"
+        className="absolute right-10 top-[20%] lg:right-16"
       >
         <Tag>
           Based in
